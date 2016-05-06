@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>お絵かきアプリ</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="/public/stylesheets/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="/public/javascripts/client.js"></script>
+</head>
+<body>
+   <h1>お絵かきアプリ</h1>
+   <p>好きなように書いてね！！</p>
+   <ul>
+       <li><button id="red" value="#DC143C">赤</button></li>
+       <li><button id="blue" value="#0000FF">青</button></li>
+       <li><button id="yellow" value="#FFFF00">黄</button></li>
+       <li><input type="color" id="color"></li>
+       <li><input type="range" id="bold"></li>
+       <li><button id="delete">全削除</button></li>
+       <li><button id="eraser">消し</button></li>
+       <li><button id="straight">直線</button></li>
+       <li><button id="triangle">四角</button></li> 
+   </ul>
+   <canvas id="board" width="500px" height="500px" style="border: solid 1px #000">
+   </canvas>
+   <p><input type="text" id="talktext" class="talk" onkeypress="talkKeyPress(event.keyCode)">
+   <input type="button" id="talksend" class="send" onclick="talk()" value="トーク！！">
+   </p>
+   
+   <textarea id="logarea" class="log" rows="10"></textarea>
+   
+   <p>現在の参加者一覧</p>
+   <select  id="participantList" class="participant" size="3"></select>
+</body>
+</html>
