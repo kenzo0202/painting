@@ -1,14 +1,18 @@
-window.onload = function(){
+(function(){
     var express = require("express");
     var bodyparser = require("body-parser");
     var app = express();
     
     app.use(express.static(__dirname + '/build'));
     app.use(bodyparser.urlencoded({extended: true}));
-    app.get('/', function(req,res){
-        username = req.body.username;
-        if(username.length == 0){
-            username = "名無し";
+    app.get("/",function(req,res){
+        res.sendFile(__dirname + "/build/index.html");
+    });
+    var userInputName= "";
+    app.post('/chat', function(req,res){
+        userInputName = req.body.username;
+        if(userInputName.length == 0){
+            userInputName = "名無し";
         }
         
         res.sendFile(__dirname + "/build/main.html");
@@ -47,4 +51,4 @@ window.onload = function(){
     })
     
     server.listen(process.env.PORT || 8080);
-}
+});
