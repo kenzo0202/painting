@@ -3,6 +3,7 @@
     var bodyparser = require("body-parser");
     var app = express();
     
+    console.log("perfect!");
     app.use(express.static(__dirname + '/build'));
     app.use(bodyparser.urlencoded({extended: true}));
     app.get("/",function(req,res){
